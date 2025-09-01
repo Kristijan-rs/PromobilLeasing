@@ -1,6 +1,5 @@
 import Seo from "@/components/Seo";
 import vehicles from "@/features/vehicles/vehicles.data";
-import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/home/Hero";
 import USPs from "@/components/home/USPs";
 import Offers from "@/components/home/Offers";
@@ -20,7 +19,6 @@ export default function Home() {
 
       <main className="mx-auto max-w-7xl px-4 py-10 space-y-12">
        <Hero />
-       <BrandStrip />
        <USPs />
        <Offers items={featured} />
       </main>
