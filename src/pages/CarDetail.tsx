@@ -127,7 +127,7 @@ export default function CarDetail() {
             </p>
             <Link
               to={requestHref}
-              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-blue-950 px-4 py-3 text-white hover:bg-blue-900 transition"
+              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-blue-900 px-4 py-3 text-white hover:bg-blue-950 transition"
               aria-label="Leasinganfrage starten"
             >
               Leasinganfrage starten

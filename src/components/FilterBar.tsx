@@ -87,7 +87,7 @@ export default function FilterBar() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-xl border bg-blue-950 hover:bg-blue-900 text-white px-4 py-2 text-sm font-medium shadow-md cursor-pointer transition"
+        className="inline-flex items-center gap-2 rounded-xl border bg-blue-900 hover:bg-blue-950 text-white px-4 py-2 text-sm font-medium shadow-md cursor-pointer transition"
         aria-expanded={open}
         aria-haspopup="true"
       >
