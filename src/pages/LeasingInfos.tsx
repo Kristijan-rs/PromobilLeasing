@@ -133,7 +133,7 @@ export default function LeasingInfos() {
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center rounded-xl border shadow-md bg-blue-950 px-5 py-3 font-semibold text-white hover:bg-blue-800 transition"
+            className="inline-flex items-center justify-center rounded-xl border shadow-md bg-blue-900 px-5 py-3 font-semibold text-white hover:bg-blue-950 transition"
           >
             Kontakt aufnehmen
           </Link>

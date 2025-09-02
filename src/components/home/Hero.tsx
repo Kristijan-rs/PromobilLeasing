@@ -25,13 +25,13 @@ export default function Hero() {
         <div className="mt-6 flex flex-wrap gap-4">
           <Link
             to="/request"
-            className="inline-flex items-center justify-center rounded-xl bg-blue-900 px-6 py-3 font-medium text-white hover:bg-blue-950 transition"
+            className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-medium  hover:bg-neutral-200 transition"
           >
             Jetzt Angebot anfordern
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center rounded-xl border-white px-6 py-3 font-medium bg-blue-900 text-white hover:bg-blue-950 transition"
+            className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium bg-blue-900 text-white hover:bg-blue-950 transition"
           >
             Kontakt aufnehmen
           </Link>
