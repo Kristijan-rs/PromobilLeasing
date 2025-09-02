@@ -87,7 +87,7 @@ export default function FilterBar() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-xl border bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-neutral-100 cursor-pointer"
+        className="inline-flex items-center gap-2 rounded-xl border bg-blue-950 hover:bg-blue-900 text-white px-4 py-2 text-sm font-medium shadow-md cursor-pointer transition"
         aria-expanded={open}
         aria-haspopup="true"
       >
@@ -193,7 +193,7 @@ export default function FilterBar() {
             {/* Sortierung */}
             <label className="text-xs font-medium text-neutral-600">Sortierung
               <select
-                className="mt-1 w-full rounded-xl border bg-white px-3 py-2 cursor-pointer"
+                className="mt-1 w-full rounded-xl border bg-white  px-3 py-2 cursor-pointer"
                 value={sort}
                 onChange={(e) => update("sort", e.target.value)}
               >
@@ -218,7 +218,7 @@ export default function FilterBar() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 cursor-pointer"
+              className="rounded-xl bg-blue-950 px-4 py-2 text-sm font-medium text-white hover:bg-blue-900 cursor-pointer transition"
             >
               Schließen
             </button>

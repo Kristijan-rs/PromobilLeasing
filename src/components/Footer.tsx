@@ -4,25 +4,25 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 border-t bg-neutral-50">
+    <footer className="mt-16 border-t bg-blue-950">
       <div className="mx-auto max-w-7xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="text-sm font-semibold tracking-wide">PromobilLeasing</h3>
-          <p className="mt-3 text-sm text-neutral-600">
+          <h3 className="text-sm font-semibold tracking-wide text-white">PromobilLeasing</h3>
+          <p className="mt-3 text-sm text-neutral-300">
             Transparentes Autoleasing mit fairen Konditionen und schneller Abwicklung.
           </p>
-          <address className="not-italic mt-4 text-sm text-neutral-600">
+          <address className="not-italic mt-4 text-sm text-neutral-300">
             Musterstraße 1<br /> 10115 Berlin, Deutschland
           </address>
-          <p className="mt-2 text-sm text-neutral-600">
+          <p className="mt-2 text-sm text-neutral-300">
             Tel.: <a className="underline" href="tel:+49301234567">+49 30 1234567</a><br />
             E-Mail: <a className="underline" href="mailto:info@promobilleasing.de">info@promobilleasing.de</a>
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold tracking-wide">Fahrzeuge</h3>
-          <ul className="mt-3 space-y-2 text-sm">
+          <h3 className="text-sm font-semibold tracking-wide text-white">Fahrzeuge</h3>
+          <ul className="mt-3 space-y-2 text-sm text-white">
             <li><Link className="hover:underline" to="/cars">Alle Fahrzeuge</Link></li>
             <li><Link className="hover:underline" to="/cars?fuel=electric">Elektro</Link></li>
             <li><Link className="hover:underline" to="/cars?fuel=hybrid">Hybrid</Link></li>
@@ -32,23 +32,23 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold tracking-wide">Service</h3>
-          <ul className="mt-3 space-y-2 text-sm">
+          <h3 className="text-sm font-semibold tracking-wide text-white">Service</h3>
+          <ul className="mt-3 space-y-2 text-sm text-white">
             <li><Link className="hover:underline" to="/request">Leasinganfrage</Link></li>
             <li><Link className="hover:underline" to="/contact">Kontakt</Link></li>
-            <li><a className="hover:underline" href="#faq">FAQ</a></li>
+            <li><Link className="hover:underline" to="/faq">FAQ</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold tracking-wide">Rechtliches</h3>
-          <ul className="mt-3 space-y-2 text-sm">
+          <h3 className="text-sm font-semibold tracking-wide text-white">Rechtliches</h3>
+          <ul className="mt-3 space-y-2 text-sm text-white">
             <li><Link className="hover:underline" to="/impressum">Impressum</Link></li>
             <li><Link className="hover:underline" to="/datenschutz">Datenschutz</Link></li>
             <li><Link className="hover:underline" to="/agb">AGB</Link></li>
             <li>
               <button
-                className="underline"
+                className="underline cursor-pointer"
                 onClick={() => {
                   try { localStorage.removeItem("cookie-consent"); } catch { /* empty */ }
                   alert("Cookie-Einstellungen zurückgesetzt.");
@@ -62,7 +62,7 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 border-t py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-neutral-500">© {year} PromobilLeasing. Alle Rechte vorbehalten.</p>
+        <p className="text-xs text-neutral-300">© {year} PromobilLeasing. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
   );

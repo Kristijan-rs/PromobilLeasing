@@ -63,11 +63,9 @@ export default function Cars() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-6">
         <div className="flex flex-col items-center space-y-3">
-          <h1 className="text-3xl font-bold text-center text-gray-100">Fahrzeuge</h1>
+          <h1 className="text-3xl font-bold text-center">Fahrzeuge</h1>
         </div>
-
-        <FilterBar />
-
+            <FilterBar />
         <VehicleGrid vehicles={list} />
       </div>
     </>

@@ -6,7 +6,8 @@ import CarDetail from "@/pages/CarDetail";
 import Request from "@/pages/Request";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
-import About from "@/pages/About";
+import LeasingInfos  from "@/pages/LeasingInfos";
+import FAQ from "@/pages/FAQ";
 
 export const router = createBrowserRouter([
   {
@@ -15,10 +16,11 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "cars", element: <Cars /> },
-      { path: "about", element: <About />},
+      { path: "leasing-info", element: <LeasingInfos  />},
       { path: "cars/:slug", element: <CarDetail /> },
       { path: "request", element: <Request /> },
       { path: "contact", element: <Contact /> },
+      { path: "faq", element: <FAQ />},
       { path: "*", element: <NotFound /> },
     ],
   },

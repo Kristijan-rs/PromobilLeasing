@@ -72,21 +72,21 @@ export default function CarDetail() {
       {/* Titel + Preis */}
       <header className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-100">
+          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
             {v.brand} {v.model}
           </h1>
-          <p className="mt-1 text-sm text-gray-100">
+          <p className="mt-1 text-sm">
             {v.year} • {fuelLabel[v.fuel]} • {v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe"}
           </p>
         </div>
         <div className="text-right">
-          <div className="text-xl sm:text-2xl font-semibold text-gray-100">
+          <div className="text-xl sm:text-2xl font-semibold">
             {v.pricePerMonth.toLocaleString("de-DE")} € / Monat
           </div>
-          <div className="text-sm text-gray-100">
+          <div className="text-sm">
             Kaufpreis: {v.priceTotal.toLocaleString("de-DE")} €
           </div>
-          <p className="text-xs text-gray-100">* Beispielrate, unverbindlich</p>
+          <p className="text-xs">* Beispielrate, unverbindlich</p>
         </div>
       </header>
 
@@ -122,17 +122,17 @@ export default function CarDetail() {
 
           <div className="rounded-2xl border bg-white p-5 shadow-md">
             <h2 className="mb-3 text-lg font-semibold">Interesse?</h2>
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-gray-700">
               Stellen Sie eine unverbindliche Leasinganfrage. Wir melden uns schnellstmöglich.
             </p>
             <Link
               to={requestHref}
-              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-white hover:bg-slate-800 transition"
+              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-blue-950 px-4 py-3 text-white hover:bg-blue-900 transition"
               aria-label="Leasinganfrage starten"
             >
               Leasinganfrage starten
             </Link>
-            <p className="mt-2 text-xs text-neutral-500">
+            <p className="mt-2 text-xs text-gray-700">
               Mit einem Klick gelangen Sie zum Anfrageformular.
             </p>
           </div>
@@ -142,14 +142,14 @@ export default function CarDetail() {
       {/* Beschreibung */}
       {v.shortDesc && (
         <section className="mt-10">
-          <h2 className="mb-2 text-lg font-semibold text-gray-100">Beschreibung</h2>
-          <p className="text-gray-200 leading-relaxed">{v.shortDesc}</p>
+          <h2 className="mb-2 text-lg font-semibold">Beschreibung</h2>
+          <p className="text-gray-700 leading-relaxed">{v.shortDesc}</p>
         </section>
       )}
 
       {/* Zurück */}
       <div className="mt-10">
-        <Link to="/cars" className="text-sm underline underline-offset-4 text-gray-100">
+        <Link to="/cars" className="text-sm underline underline-offset-4">
           ← Zurück zur Fahrzeugliste
         </Link>
       </div>

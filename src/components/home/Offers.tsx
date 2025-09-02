@@ -8,12 +8,12 @@ export default function Offers({ items }: Props) {
   return (
     <section aria-labelledby="angebote-heading" className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 id="angebote-heading" className="text-xl font-semibold text-gray-100">
+        <h2 id="angebote-heading" className="text-xl font-semibold">
           Aktuelle Angebote
         </h2>
         <Link
           to="/cars"
-          className="text-sm font-medium underline underline-offset-4 text-gray-100"
+          className="text-sm font-medium underline underline-offset-4"
         >
           Alle Fahrzeuge ansehen
         </Link>

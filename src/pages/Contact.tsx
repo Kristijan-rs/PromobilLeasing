@@ -4,38 +4,40 @@ export default function ContactPage() {
     <div className="mx-auto max-w-7xl px-4 py-12">
       <div className="grid gap-12 md:grid-cols-2 items-center">
         <section className="space-y-6">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-100">Kontakt</h1>
-
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Kontakt</h1>
           <div className="space-y-6">
-            <h2 className="text-xl sm:text-2xl font-semibold text-gray-100">PromobilLeasing GmbH</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold">PromobilLeasing GmbH</h2>
+             <p className="mt-2 text-neutral-700">
+    Haben Sie Fragen oder wünschen Sie eine persönliche Beratung? Kontaktieren Sie unser Team – wir helfen Ihnen gerne weiter.
+  </p>
 
-            <address className="not-italic text-base sm:text-lg leading-relaxed text-gray-100">
+            <address className="not-italic text-base sm:text-lg leading-relaxed">
               Musterstraße 1<br />
               12345 Musterstadt
             </address>
 
             <div className="space-y-2 text-base sm:text-lg">
-              <p className="text-gray-100">
+              <p>
                 Tel:&nbsp;
                 <a
                   href="tel:01234567890"
-                  className="font-medium text-gray-100 hover:text-gray-300 underline underline-offset-4"
+                  className="font-medium hover:text-gray-600 underline underline-offset-4"
                 >
                   01234&nbsp;567890
                 </a>
               </p>
-              <p className="text-gray-100">
+              <p>
                 E-Mail:&nbsp;
                 <a
                   href="mailto:info@promobilleasing.de"
-                  className="font-medium text-gray-100 hover:text-gray-300 underline underline-offset-4"
+                  className="font-medium hover:text-gray-600 underline underline-offset-4"
                 >
                   info@promobilleasing.de
                 </a>
               </p>
             </div>
 
-            <p className="text-sm sm:text-base text-gray-100 ">
+            <p className="text-sm sm:text-bas">
               Bürozeiten: Mo–Fr 9:00–17:00 Uhr
             </p>
           </div>
@@ -43,9 +45,9 @@ export default function ContactPage() {
 
         {/* DESNO: mapa */}
         <section aria-labelledby="map-heading" className="space-y-4">
-          <h2 id="map-heading" className="text-xl sm:text-2xl font-semibold text-gray-100">Karte</h2>
+          <h2 id="map-heading" className="text-xl sm:text-2xl font-semibold">Karte</h2>
 
-          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+          <div className="overflow-hidden rounded-2xl border shadow-sm">
             {/* OSM embed – zameni bbox/marker kada budeš imao koordinate */}
             <iframe
               title="Standort PromobilLeasing"
