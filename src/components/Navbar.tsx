@@ -40,6 +40,7 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-4 py-3 flex flex-col gap-2">
             <NavLink to="/" className={linkActive} onClick={() => setOpen(false)} end>Home</NavLink>
             <NavLink to="/cars" className={linkActive} onClick={() => setOpen(false)}>Fahrzeuge</NavLink>
+            <NavLink to="/about" className={linkActive} onClick={() => setOpen(false)}>Über uns</NavLink>
             <NavLink to="/request" className={linkActive} onClick={() => setOpen(false)}>Leasinganfrage</NavLink>
             <NavLink to="/contact" className={linkActive} onClick={() => setOpen(false)}>Kontakt</NavLink>
           </div>
