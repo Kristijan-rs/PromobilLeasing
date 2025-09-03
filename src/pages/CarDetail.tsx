@@ -8,6 +8,7 @@ import { addRecent } from "@/store/recent";
 import Gallery from "@/components/Gallery";
 import SpecList from "@/components/SpecList";
 import { kwToPs } from "@/lib/format";
+import { formatEUR, getMonthlyRate } from "@/lib/pricing";
 
 const fuelLabel: Record<Vehicle["fuel"], string> = {
   petrol: "Benzin",
@@ -58,11 +59,13 @@ export default function CarDetail() {
   ];
 
   const requestHref = `/request?vehicle=${encodeURIComponent(v.slug)}`;
+  
+  const monthly = getMonthlyRate(v.priceTotal, v.pricePerMonth);
 
   return (
     <article className="mx-auto max-w-7xl px-4 py-8">
       <Seo
-        title={`${v.brand} ${v.model} – ab ${v.pricePerMonth.toLocaleString("de-DE")} € / Monat | PromobilLeasing`}
+        title={`${v.brand} ${v.model} – ab ${formatEUR(monthly)} / Monat | PromobilLeasing`}
         description={v.shortDesc}
         ogImage={v.images?.[0]}
         canonical={url}
@@ -75,16 +78,13 @@ export default function CarDetail() {
           <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
             {v.brand} {v.model}
           </h1>
-          <p className="mt-1 text-sm">
-            {v.year} • {fuelLabel[v.fuel]} • {v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe"}
-          </p>
-        </div>
+          </div>
         <div className="text-right">
           <div className="text-xl sm:text-2xl font-semibold">
-            {v.pricePerMonth.toLocaleString("de-DE")} € / Monat
+            {formatEUR(monthly)} / Monat
           </div>
           <div className="text-sm">
-            Kaufpreis: {v.priceTotal.toLocaleString("de-DE")} €
+            Kaufpreis: {formatEUR(v.priceTotal)}
           </div>
           <p className="text-xs">* Beispielrate, unverbindlich</p>
         </div>
@@ -108,19 +108,20 @@ export default function CarDetail() {
             <SpecList
               items={[
                 { label: "Marke/Modell", value: `${v.brand} ${v.model}` },
+                { label: "Fahrzeugtyp", value: `${v.bodyType}`},
                 { label: "Baujahr", value: String(v.year) },
                 { label: "Kilometerstand", value: `${v.mileage.toLocaleString("de-DE")} km` },
                 { label: "Antrieb", value: fuelLabel[v.fuel] },
                 { label: "Getriebe", value: v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe" },
                 { label: "Leistung", value: `${v.powerKW} kW / ${kwToPs(v.powerKW)} PS` },
-                { label: "Monatsrate", value: `${v.pricePerMonth.toLocaleString("de-DE")} €` },
-                { label: "Kaufpreis", value: `${v.priceTotal.toLocaleString("de-DE")} €` },
+                { label: "Monatsrate", value: `${formatEUR(monthly)}` },
+                { label: "Kaufpreis", value: `${formatEUR(v.priceTotal)}` },
                 { label: "Verfügbarkeit", value: v.available ? "Verfügbar" : "Nicht verfügbar" },
               ]}
             />
           </div>
 
-          <div className="rounded-2xl border bg-white p-5 shadow-md">
+          <div className="rounded-2xl border bg-white p-5 shadow-md mb-6">
             <h2 className="mb-3 text-lg font-semibold">Interesse?</h2>
             <p className="text-sm text-gray-700">
               Stellen Sie eine unverbindliche Leasinganfrage. Wir melden uns schnellstmöglich.
@@ -138,6 +139,23 @@ export default function CarDetail() {
           </div>
         </aside>
       </div>
+
+        {v.technicalData && (
+    <div className="rounded-2xl border bg-white p-5 shadow-md">
+      <h2 className="mb-3 text-lg font-semibold">Weitere technische Daten</h2>
+
+      {/* A11y-friendly opis kao definiciona lista */}
+      <dl className="grid grid-cols-1 gap-y-2 gap-x-6 text-sm sm:grid-cols-2">
+        {Object.entries(v.technicalData).map(([label, value]) => (
+          <div key={label} className="flex sm:block justify-between gap-3 border-b last:border-b-0 pb-2">
+            <dt className="font-medium text-neutral-700">{label}</dt>
+            <dd className="text-neutral-900 break-words">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  )}
+
 
       {/* Beschreibung */}
       {v.shortDesc && (

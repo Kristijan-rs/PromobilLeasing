@@ -1,19 +1,21 @@
+// cars.tsx
 import { useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import FilterBar from "@/components/FilterBar";
 import VehicleGrid from "@/components/VehicleGrid";
 import vehicles from "@/features/vehicles/vehicles.data";
+import { getMonthlyRate } from "@/lib/pricing";
 
 type SortKey = "priceAsc" | "priceDesc" | "yearDesc" | "yearAsc";
 
-// Preis-Helfer (prioritet Monatsrate, fallback Kaufpreis)
+// Preis-Helfer: immer Monatsrate (Fallback auf Kaufpreis wenn nötig)
 const priceOf = (v: typeof vehicles[number]) => {
-  if (typeof v.pricePerMonth === "number") return v.pricePerMonth;
-  if (typeof v.priceTotal === "number") return v.priceTotal;
-  return Number.POSITIVE_INFINITY;
+  const monthly = getMonthlyRate(v.priceTotal, v.pricePerMonth);
+  if (monthly > 0) return monthly;
+  // Fallback: wenn keine sinnvolle Rate bestimmbar ist, nutze Kaufpreis
+  return Number.isFinite(v.priceTotal) ? v.priceTotal : Number.POSITIVE_INFINITY;
 };
 
-// Filtern + Sortieren nach URL-SearchParams
 function applyFilters(sp: URLSearchParams) {
   const brand = sp.get("brand") ?? "";
   const model = sp.get("model") ?? "";
@@ -65,7 +67,7 @@ export default function Cars() {
         <div className="flex flex-col items-center space-y-3">
           <h1 className="text-3xl font-bold text-center">Fahrzeuge</h1>
         </div>
-            <FilterBar />
+        <FilterBar />
         <VehicleGrid vehicles={list} />
       </div>
     </>

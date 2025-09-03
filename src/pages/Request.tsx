@@ -34,7 +34,7 @@ export default function RequestPage() {
   };
 
   return (
-    <div className="max-w-2xl rounded-2xl shadow-lg mx-auto p-10 bg-white">
+    <div className="max-w-2xl rounded-2xl shadow-lg mx-auto mt-10  p-10 bg-white">
       <h1 className="text-2xl font-semibold mb-6 ">Leasinganfrage</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
