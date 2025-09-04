@@ -73,14 +73,14 @@ export default function CarDetail() {
       />
 
       {/* Titel + Preis */}
-      <header className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+      <header className="mb-8 flex flex-col  gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div className="text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold">
             {v.brand} {v.model}
           </h1>
           </div>
-        <div className="text-right">
-          <div className="text-xl sm:text-2xl font-semibold">
+        <div className="text-center space-y-1">
+          <div className="text-2xl sm:text-3xl font-semibold">
             {formatEUR(monthly)} / Monat
           </div>
           <div className="text-sm">
