@@ -79,7 +79,7 @@ export default function CarDetail() {
             {v.brand} {v.model}
           </h1>
           </div>
-        <div className="text-center space-y-1">
+        <div className="text-center space-y-1 mt-2">
           <div className="text-2xl sm:text-3xl font-semibold">
             {formatEUR(monthly)} / Monat
           </div>
