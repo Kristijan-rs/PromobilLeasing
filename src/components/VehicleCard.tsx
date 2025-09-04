@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { Vehicle } from "@/features/vehicles/vehicles.type";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { CARD_SIZES } from "@/lib/images";
-import { formatEUR, getMonthlyRate } from "@/lib/pricing";
+import { formatEUR, getMonthlyRate } from "@/lib/pricing"; 
 
 type Props = { v: Vehicle };
 
@@ -17,7 +17,8 @@ export default function VehicleCard({ v }: Props) {
   const img1 = v.images?.[0] ?? "/images/placeholder-car.jpg";
   const img2 = v.images?.[1];
 
-  const monthly = getMonthlyRate(v.priceTotal, v.pricePerMonth);
+  // Sada koristi samo priceTotal
+  const monthly = getMonthlyRate(v.priceTotal, v.pricePerMonth, { months: 30 });
 
   return (
     <Link
@@ -58,7 +59,8 @@ export default function VehicleCard({ v }: Props) {
           {v.brand} {v.model}
         </h3>
         <p className="mt-1 text-sm text-neutral-600">
-          {v.year} • {fuelLabel[v.fuel]} • {v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe"}
+          {v.year} • {fuelLabel[v.fuel]} •{" "}
+          {v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe"}
         </p>
 
         {/* Preise: Rate + Kaufpreis */}
@@ -68,8 +70,9 @@ export default function VehicleCard({ v }: Props) {
             <span className="text-sm font-normal">/ Monat</span>
           </p>
           <span className="text-neutral-500">•</span>
-          <p className="text-sm text- text-neutral-700">
-            Kaufpreis: <span className="text-sm font-semibold">{formatEUR(v.priceTotal)}</span>
+          <p className="text-sm text-neutral-700">
+            Kaufpreis:{" "}
+            <span className="text-sm font-semibold">{formatEUR(v.priceTotal)}</span>
           </p>
         </div>
       </div>

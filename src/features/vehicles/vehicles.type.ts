@@ -23,7 +23,8 @@ export interface Vehicle {
   gearbox: Gearbox;        
   powerKW: number;         
   pricePerMonth?: number;
-  priceTotal: number;      
+  priceTotal: number;    
+ 
   images: string[];        
   available: boolean;   
   featured: boolean;   
