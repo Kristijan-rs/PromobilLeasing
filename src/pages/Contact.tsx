@@ -6,24 +6,24 @@ export default function ContactPage() {
         <section className="space-y-6">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Kontakt</h1>
           <div className="space-y-6">
-            <h2 className="text-xl sm:text-2xl font-semibold">PromobilLeasing GmbH</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold">Promobile Leasing</h2>
              <p className="mt-2 text-neutral-700">
     Haben Sie Fragen oder wünschen Sie eine persönliche Beratung? Kontaktieren Sie unser Team – wir helfen Ihnen gerne weiter.
   </p>
 
             <address className="not-italic text-base sm:text-lg leading-relaxed">
-              Musterstraße 1<br />
-              12345 Musterstadt
+             Kaiserin-Augusta-Allee 87<br />
+             10589 Berlin
             </address>
 
             <div className="space-y-2 text-base sm:text-lg">
               <p>
                 Tel:&nbsp;
                 <a
-                  href="tel:01234567890"
+                  href="tel:015757800674"
                   className="font-medium hover:text-gray-600 underline underline-offset-4"
                 >
-                  01234&nbsp;567890
+                  01575&nbsp;7800674
                 </a>
               </p>
               <p>
@@ -32,13 +32,13 @@ export default function ContactPage() {
                   href="mailto:info@promobilleasing.de"
                   className="font-medium hover:text-gray-600 underline underline-offset-4"
                 >
-                  info@promobilleasing.de
+                  info@promobileleasing.de
                 </a>
               </p>
             </div>
 
             <p className="text-sm sm:text-bas">
-              Bürozeiten: Mo–Fr 9:00–17:00 Uhr
+              Bürozeiten: Mo–Fr 10:00–18:00 Uhr
             </p>
           </div>
         </section>
@@ -55,7 +55,7 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               style={{ border: 0 }}
-              src="https://www.openstreetmap.org/export/embed.html?bbox=13.375%2C52.50%2C13.405%2C52.52&layer=mapnik&marker=52.510%2C13.390"
+              src="https://www.google.com/maps?q=Kaiserin-Augusta-Allee+87,+10589+Berlin&output=embed"
             />
           </div>
         </section>
