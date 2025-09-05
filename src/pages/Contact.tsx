@@ -20,10 +20,10 @@ export default function ContactPage() {
               <p>
                 Tel:&nbsp;
                 <a
-                  href="tel:015757800674"
+                  href="tel:+4915757800674"
                   className="font-medium hover:text-gray-600 underline underline-offset-4"
                 >
-                  01575&nbsp;7800674
+                 +49 1575&nbsp;7800674
                 </a>
               </p>
               <p>

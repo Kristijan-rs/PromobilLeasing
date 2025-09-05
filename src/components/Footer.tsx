@@ -12,11 +12,11 @@ export default function Footer() {
             Transparentes Autoleasing mit fairen Konditionen und schneller Abwicklung.
           </p>
           <address className="not-italic mt-4 text-sm text-neutral-300">
-            Musterstraße 1<br /> 10115 Berlin, Deutschland
+            Kaiserin-Augusta-Allee 87<br /> 10589 Berlin, Deutschland
           </address>
           <p className="mt-2 text-sm text-neutral-300">
-            Tel.: <a className="underline" href="tel:+49301234567">+49 30 1234567</a><br />
-            E-Mail: <a className="underline" href="mailto:info@promobilleasing.de">info@promobilleasing.de</a>
+            Tel.: <a className="underline" href="tel:+4915757800674">+49 1575 7800674</a><br />
+            E-Mail: <a className="underline" href="mailto:info@promobileleasing.de">info@promobileleasing.de</a>
           </p>
         </div>
 
