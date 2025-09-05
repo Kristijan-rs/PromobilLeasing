@@ -73,19 +73,23 @@ export default function CarDetail() {
       />
 
       {/* Titel + Preis */}
-      <header className="mb-8 flex flex-col  gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <div className="text-center">
+      <header className="mb-8 flex flex-col  gap-2 sm:flex-row sm:iitem-end sm:justify-between">
+        <div className="flex text-center items-end">
           <h1 className="text-3xl sm:text-4xl font-bold">
             {v.brand} {v.model}
           </h1>
           </div>
-        <div className="text-center space-y-1 mt-2">
+        <div className="text-center sm:text-end space-y-1 mt-2">
           <div className="text-2xl sm:text-3xl font-semibold">
             {formatEUR(monthly)} / Monat
           </div>
           <div className="text-sm">
-            Kaufpreis: {formatEUR(v.priceTotal)}
+           {formatEUR(v.priceTotal)} (Brutto)
           </div>
+          <div className="text-sm">
+          {formatEUR(v.priceNeto)} (Netto)
+          </div>
+          <p className="text-xs">19,00% MwSt.</p>
           <p className="text-xs">* Beispielrate, unverbindlich</p>
         </div>
       </header>

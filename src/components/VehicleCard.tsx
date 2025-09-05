@@ -71,9 +71,12 @@ export default function VehicleCard({ v }: Props) {
           </p>
           <span className="text-neutral-500">•</span>
           <p className="text-sm text-neutral-700">
-            Kaufpreis:{" "}
+           Kaufpreis: {" "}
             <span className="text-sm font-semibold">{formatEUR(v.priceTotal)}</span>
           </p>
+          <p className="text-sm text-neutral-700">{formatEUR(v.priceNeto)} (Netto)</p>
+          <span className="text-neutral-500">•</span>
+          <p className="text-sm text-neutral-700">19,00% MwSt.</p>
         </div>
       </div>
     </Link>

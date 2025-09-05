@@ -24,7 +24,7 @@ export interface Vehicle {
   powerKW: number;         
   pricePerMonth?: number;
   priceTotal: number;    
- 
+  priceNeto: number; 
   images: string[];        
   available: boolean;   
   featured: boolean;   
