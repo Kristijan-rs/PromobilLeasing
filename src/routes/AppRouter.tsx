@@ -8,6 +8,9 @@ import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
 import LeasingInfos  from "@/pages/LeasingInfos";
 import FAQ from "@/pages/FAQ";
+import Datenschutz from "@/pages/Datenschutz";
+import Impressum from "@/pages/Impressum ";
+import Agb from "@/pages/Agb";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +24,9 @@ export const router = createBrowserRouter([
       { path: "request", element: <Request /> },
       { path: "contact", element: <Contact /> },
       { path: "faq", element: <FAQ />},
+      { path: "/datenschutz", element: <Datenschutz />},
+      { path: "/impressum", element: <Impressum />},
+      { path: "/agb", element: <Agb />},
       { path: "*", element: <NotFound /> },
     ],
   },
