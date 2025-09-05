@@ -8,7 +8,7 @@ export default function AGB() {
   const updatedAt = new Date().toLocaleDateString("de-DE");
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-12">
+    <main className="mx-auto max-w-4xl px-4 py-12 text-center">
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
           Allgemeine Geschäftsbedingungen (AGB)

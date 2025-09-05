@@ -1,7 +1,7 @@
 // src/pages/Impressum.tsx
 export default function Impressum() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-12">
+    <main className="mx-auto max-w-4xl px-4 py-12 text-center">
       <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">Impressum</h1>
 
       <section className="space-y-2 text-neutral-800">
