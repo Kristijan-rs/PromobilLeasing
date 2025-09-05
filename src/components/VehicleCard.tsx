@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { Vehicle } from "@/features/vehicles/vehicles.type";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { CARD_SIZES } from "@/lib/images";
-import { formatEUR, getMonthlyRate } from "@/lib/pricing"; 
+import { formatEUR } from "@/lib/pricing"; 
 
 type Props = { v: Vehicle };
 
@@ -16,9 +16,6 @@ const fuelLabel: Record<Vehicle["fuel"], string> = {
 export default function VehicleCard({ v }: Props) {
   const img1 = v.images?.[0] ?? "/images/placeholder-car.jpg";
   const img2 = v.images?.[1];
-
-  // Sada koristi samo priceTotal
-  const monthly = getMonthlyRate(v.priceNeto, v.pricePerMonth, { months: 30 });
 
   return (
     <Link
@@ -65,18 +62,12 @@ export default function VehicleCard({ v }: Props) {
 
         {/* Preise: Rate + Kaufpreis */}
         <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <p className="text-base font-semibold">
-            {formatEUR(monthly)}
-            <span className="text-sm font-normal">/ Monat</span>
-          </p>
-          <span className="text-neutral-500">•</span>
           <p className="text-sm text-neutral-700">
            Kaufpreis: {" "}
             <span className="text-sm font-semibold">{formatEUR(v.priceTotal)}</span>
           </p>
           <p className="text-sm text-neutral-700">{formatEUR(v.priceNeto)} (Netto)</p>
-          <span className="text-neutral-500">•</span>
-          <p className="text-sm text-neutral-700">19,00% MwSt.</p>
+        
         </div>
       </div>
     </Link>

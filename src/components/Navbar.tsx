@@ -11,7 +11,7 @@ type LinkItem = {
 const LINKS: readonly LinkItem[] = [
   { to: "/", label: "Home", end: true },
   { to: "/cars", label: "Fahrzeuge" },
-  { to: "/leasing-info", label: "Leasing Infos" },
+  { to: "/leasinginfos", label: "Leasing Infos" },
   { to: "/request", label: "Leasinganfrage" },
   { to: "/contact", label: "Kontakt" },
 ];

@@ -6,7 +6,7 @@ const vehicles: Vehicle[] = [
     slug: "Audi RSQ8 Dynamik+ Keramik HuD 305kmh SoftClose Stand",
    bodyType: "SUV / Geländewagen / Pickup",
     brand: "Audi",
-    model: "RSQ8 Dynamik+ Keramik HuD 305kmh SoftClose Stand",
+    model: "RSQ8",
     year: 12.2023,
     mileage: 24269 ,
     fuel: "petrol",
@@ -60,7 +60,7 @@ const vehicles: Vehicle[] = [
   "Energieverbrauch (komb.)": "13,2 l/100km",
   "CO₂-Emissionen (komb.)": "300 g/km",
 },
-    shortDesc: "",
+    shortDesc: "Dynamik+ Keramik HuD 305kmh SoftClose Stand",
    },
   {
   id: "2",

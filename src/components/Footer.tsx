@@ -34,6 +34,7 @@ export default function Footer() {
         <div>
           <h3 className="text-sm font-semibold tracking-wide text-white">Service</h3>
           <ul className="mt-3 space-y-2 text-sm text-white">
+            <li><Link className="hover:underline" to="/leasinginfos">Leasing Infos</Link></li>
             <li><Link className="hover:underline" to="/request">Leasinganfrage</Link></li>
             <li><Link className="hover:underline" to="/contact">Kontakt</Link></li>
             <li><Link className="hover:underline" to="/faq">FAQ</Link></li>
