@@ -18,7 +18,7 @@ export default function VehicleCard({ v }: Props) {
   const img2 = v.images?.[1];
 
   // Sada koristi samo priceTotal
-  const monthly = getMonthlyRate(v.priceTotal, v.pricePerMonth, { months: 30 });
+  const monthly = getMonthlyRate(v.priceNeto, v.pricePerMonth, { months: 30 });
 
   return (
     <Link

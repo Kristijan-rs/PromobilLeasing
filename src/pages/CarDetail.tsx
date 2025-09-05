@@ -9,6 +9,7 @@ import Gallery from "@/components/Gallery";
 import SpecList from "@/components/SpecList";
 import { kwToPs } from "@/lib/format";
 import { formatEUR, getMonthlyRate } from "@/lib/pricing";
+import CaddyBreakdown from "@/features/lease/CaddyBreakdown";
 
 const fuelLabel: Record<Vehicle["fuel"], string> = {
   petrol: "Benzin",
@@ -80,10 +81,7 @@ export default function CarDetail() {
           </h1>
           </div>
         <div className="text-center sm:text-end space-y-1 mt-2">
-          <div className="text-2xl sm:text-3xl font-semibold">
-            {formatEUR(monthly)} / Monat
-          </div>
-          <div className="text-sm">
+          <div className="font-semibold text-2xl">
            {formatEUR(v.priceTotal)} (Brutto)
           </div>
           <div className="text-sm">
@@ -91,6 +89,9 @@ export default function CarDetail() {
           </div>
           <p className="text-xs">19,00% MwSt.</p>
           <p className="text-xs">* Beispielrate, unverbindlich</p>
+          <div className="flex flex-wrap justify-center sm:justify-start">
+          <CaddyBreakdown priceNet={v.priceNeto} months={30}/>
+          </div>
         </div>
       </header>
 
