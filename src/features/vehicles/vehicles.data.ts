@@ -447,7 +447,7 @@ const vehicles: Vehicle[] = [
   fuel: "electric",
   gearbox: "auto",
   powerKW: 230,
-  pricePerMonth: 317,
+  pricePerMonth: 0,
   priceTotal: 33990,
   priceNeto: 28563,
   images: [
@@ -509,7 +509,7 @@ const vehicles: Vehicle[] = [
   fuel: "diesel",
   gearbox: "manual",
   powerKW: 96,
-  pricePerMonth: 261,
+  pricePerMonth: 0,
   priceTotal: 27990,
   priceNeto: 23521,
   images: [
@@ -571,7 +571,7 @@ const vehicles: Vehicle[] = [
   fuel: "diesel",
   gearbox: "auto",
   powerKW: 150,
-  pricePerMonth: 438,
+  pricePerMonth: 0,
   priceTotal: 46990,
   priceNeto: 39487,
   images: [
@@ -632,7 +632,7 @@ const vehicles: Vehicle[] = [
   fuel: "diesel",
   gearbox: "auto",
   powerKW: 221,
-  pricePerMonth: 1025,
+  pricePerMonth: 0,
   priceTotal: 109990,
   priceNeto: 92429,
   images: [

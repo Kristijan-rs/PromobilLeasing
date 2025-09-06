@@ -76,7 +76,7 @@ export default function CarDetail() {
       {/* Titel + Preis */}
       <header className="mb-8 flex flex-col  gap-2 sm:flex-row sm:iitem-end sm:justify-between">
         <div className="flex text-center items-end">
-          <h1 className="text-3xl sm:text-4xl font-bold">
+          <h1 className="text-3xl sm:text-4xl font-bold sm:text-start">
             {v.brand} {v.model}
           </h1>
           </div>
@@ -96,7 +96,7 @@ export default function CarDetail() {
       </header>
 
       {/* Layout */}
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div className="grid gap-8 lg:grid-cols-3 mb-5">
         {/* Galerie */}
         <div className="lg:col-span-2">
           {v.images?.length ? (
@@ -119,8 +119,6 @@ export default function CarDetail() {
                 { label: "Antrieb", value: fuelLabel[v.fuel] },
                 { label: "Getriebe", value: v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe" },
                 { label: "Leistung", value: `${v.powerKW} kW / ${kwToPs(v.powerKW)} PS` },
-                { label: "Monatsrate", value: `${formatEUR(monthly)}` },
-                { label: "Kaufpreis", value: `${formatEUR(v.priceTotal)}` },
                 { label: "Verfügbarkeit", value: v.available ? "Verfügbar" : "Nicht verfügbar" },
               ]}
             />
