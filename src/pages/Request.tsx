@@ -9,7 +9,7 @@ import { useSearchParams } from "react-router-dom"
 import vehicles from "@/features/vehicles/vehicles.data"
 
 // [PL] CHANGED: uvozim i caddyBreakdown + getMonthlyRate iz tvog pricing.ts
-import { formatEUR, caddyBreakdown } from "@/lib/pricing" // [PL] CHANGED
+import { formatEUR, caddyBreakdown } from "@/lib/pricing" 
 
 const RequestSchema = z.object({
   name: z.string().min(2, "Bitte geben Sie Ihren Namen ein."),

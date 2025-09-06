@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 border-t bg-blue-950">
+    <footer className="mt-16 border-t bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="text-sm font-semibold tracking-wide text-white">PromobilLeasing</h3>
