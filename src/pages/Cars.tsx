@@ -57,7 +57,7 @@ export default function Cars() {
   return (
     <>
       <Seo
-        title="Fahrzeuge – PromobilLeasing"
+        title="Fahrzeuge – Promobile Leasing"
         description="Entdecken Sie aktuelle Angebote. Filtern Sie nach Marke, Modell, Baujahr, Antrieb und sortieren Sie nach Preis."
         ogImage="/og/cars.jpg"
         canonical={`${site}/cars`}

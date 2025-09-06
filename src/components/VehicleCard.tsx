@@ -64,10 +64,15 @@ export default function VehicleCard({ v }: Props) {
         <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <p className="text-sm text-neutral-700">
            Kaufpreis: {" "}
-            <span className="text-sm font-semibold">{formatEUR(v.priceTotal)}</span>
+            <span className="text-sm font-semibold">{formatEUR(v.priceTotal)}</span> (Brutto)
           </p>
-          <p className="text-sm text-neutral-700">{formatEUR(v.priceNeto)} (Netto)</p>
-        
+          <span className="text-neutral-600">•</span>
+          <p className="text-sm text-neutral-700">
+            <span className="text-sm font-semibold">
+            {formatEUR(v.priceNeto)} (Netto)
+            </span>
+            </p>
+            
         </div>
       </div>
     </Link>

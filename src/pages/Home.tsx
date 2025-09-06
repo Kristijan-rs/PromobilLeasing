@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="PromobilLeasing – Top Fahrzeuge: Leasing & Kauf"
+        title="Promobile Leasing – Auto Leasing Finanzierung Trotz Schufa"
         description="Leasing und Kauf zu fairen Konditionen. Aktuelle Angebote, transparente Preise, schnelle Abwicklung."
         ogImage="/og/home.jpg"
         canonical={`${site}/`}

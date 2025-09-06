@@ -20,28 +20,28 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const linkBase =
-    "block px-3 py-2 rounded-xl text-md font-medium hover:bg-slate-100";
+    "block px-3 py-2 rounded-xl text-md font-medium hover:bg-blue-900";
   const linkActive = ({ isActive }: { isActive: boolean }) =>
     `${linkBase} ${isActive ? "bg-blue-950 text-white" : ""}`;
 
   return (
-    <header className="bg-white border-b border-slate-200 shadow-lg">
+    <header className="bg-slate-950 border-b shadow-lg">
       <div className="mx-auto max-w-7xl px-4 h-24 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/assets/logo.webp"
+            src="/assets/logo.png"
             alt="PromobilLeasing Logo"
             className="h-20 w-auto"
             loading="eager"
             decoding="async"
           />
-          <p className="text-lg lg:text-2xl font-semibold tracking-tight text-slate-900">
-            PromobilLeasing
+          <p className="text-lg lg:text-2xl font-semibold tracking-tight text-white">
+            Promobile Leasing
           </p>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-2 text-slate-900">
+        <nav className="hidden md:flex items-center gap-2 text-white">
           {LINKS.map((l) => (
             <NavLink key={l.to} to={l.to} end={l.end} className={linkActive}>
               {l.label}
@@ -54,7 +54,7 @@ export default function Navbar() {
           aria-label="Menü umschalten"
           aria-expanded={open}
           aria-controls="mobile-nav"
-          className="md:hidden rounded-xl border border-slate-900 px-3 py-1.5 cursor-pointer"
+          className="md:hidden rounded-xl border bg-white px-3 py-1.5 cursor-pointer"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-6 w-6"/> : <Menu className="h-6 w-6"/>}

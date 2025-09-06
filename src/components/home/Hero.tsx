@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { Phone } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-[500px] -mt-10 flex items-center overflow-hidden">
+    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-[500px] -mt-10 flex items-center overflow-hidden py-70">
       {/* Pozadinska slika */}
       <img
         src="/images/hero-car.webp"
@@ -11,15 +12,14 @@ export default function Hero() {
         loading="eager"
         decoding="async"
       />
-
+ 
       {/* Sadržaj */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 ">
         <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight drop-shadow-lg text-white">
-          Auto-Leasing trotz Schufa – Mobilität für alle!
+          Auto-Leasing Finanzierung trotz Schufa – Mobilität für alle!
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-white drop-shadow-lg">
-          Flexibles Gewerbeleasing und Kfz-Finanzierung in Deutschland –
-          auch ohne Einkommensnachweis und mit 25–35% Anzahlung.
+        Promobile Leasing bietet flexible Lösungen für Auto Leasing und Fahrzeugfinanzierung. Egal ob UG, GmbH, GbR oder Einzelunternehmen – auch junge Firmen und Selbständige mit SCHUFA-Eintrag können bei uns Transporter, LKW und Firmenwagen leasen. Entscheidung in nur 24–48 Stunden.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4">
@@ -29,13 +29,16 @@ export default function Hero() {
           >
             Jetzt Angebot anfordern
           </Link>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium bg-blue-900 text-white hover:bg-blue-950 transition"
-          >
-            Kontakt aufnehmen
-          </Link>
+         
+         <a
+  href="tel:+4915757800674"
+  className="flex items-center gap-x-2 rounded-xl bg-slate-950 px-6 py-3 font-semibold text-2xl hover:bg-blue-950 text-white"
+>
+  <Phone className="h-6 w-6" aria-hidden="true" />
+  +49 1575&nbsp;7800674
+</a>
         </div>
+        
       </div>
     </section>
   );
