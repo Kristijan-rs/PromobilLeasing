@@ -1,4 +1,3 @@
-// /api/contact.ts
 import type { IncomingMessage, ServerResponse } from "http";
 import nodemailer from "nodemailer";
 
@@ -25,9 +24,15 @@ type Body = {
   email?: string;
   phone?: string;
   message?: string;
-  vehicle?: string;
+  vehicle?: string; 
   gdpr?: boolean;
-  company?: string; // honeypot
+  company?: string; 
+
+  // [PL] ADDED: dodatni meta-podaci o vozilu
+  vehicleTitle?: string;      
+  vehicleYear?: number | string;
+  vehiclePriceTotal?: number | string;
+  vehicleUrl?: string;
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -73,9 +78,23 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const email = (body.email ?? "").trim();
   const phone = (body.phone ?? "").trim();
   const message = (body.message ?? "").trim();
-  const vehicle = (body.vehicle ?? "").trim();
+  const vehicle = (body.vehicle ?? "").trim(); 
   const gdpr = body.gdpr === true;
-  const company = (body.company ?? "").trim(); // honeypot
+  const company = (body.company ?? "").trim(); 
+
+  // [PL] ADDED: dodatni meta-podaci o vozilu
+  const vehicleTitle = (body.vehicleTitle ?? "").trim();                
+  const vehicleYearRaw = (body.vehicleYear ?? "").toString().trim();     
+  const vehiclePriceRaw = (body.vehiclePriceTotal ?? "").toString().trim(); 
+  const vehicleUrl = (body.vehicleUrl ?? "").trim();                     
+
+  // [PL] ADDED: bezbedno parsiranje brojeva (dozvoli i "12.2023" kao string)
+  const vehicleYear =
+    vehicleYearRaw && /^\d{2}\.\d{4}$/.test(vehicleYearRaw) ? vehicleYearRaw : 
+    (Number.isFinite(Number(vehicleYearRaw)) ? Number(vehicleYearRaw) : "");  
+
+  const vehiclePriceTotal =
+    Number.isFinite(Number(vehiclePriceRaw)) ? Number(vehiclePriceRaw) : vehiclePriceRaw; // zadrži kao string ako nije čist broj
 
   // Honeypot → tiho uspeh
   if (company !== "") return json(res, 200, { ok: true });
@@ -102,7 +121,6 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   // Guard za ENV
   if (!HOST || !PORT || !USER || !PASS || !MAIL_FROM || !MAIL_TO) {
-    // kratko logovanje, bez izlaganja tajni
     console.error("SMTP config missing", {
       HOST: !!HOST,
       PORT,
@@ -114,41 +132,82 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     return json(res, 500, { error: "Server mail config missing" });
   }
 
-  const subject = vehicle ? `Leasinganfrage – ${vehicle}` : "Leasinganfrage über das Kontaktformular";
+  // CHANGED: subjekat – koristi naziv vozila ako postoji, fallback na slug ili generički
+  const subjectBase =
+    vehicleTitle || (vehicle ? `Fahrzeug: ${vehicle}` : "Leasinganfrage");
+  const subject = `Leasinganfrage – ${subjectBase}`;
+
+  // CHANGED: HTML poruka – ubačeni meta-podaci o vozilu
   const html =
     `<h2>Neue Leasinganfrage</h2>
      <table border="0" cellpadding="6" cellspacing="0" style="border-collapse:collapse">
        <tr><td><b>Name</b></td><td>${escapeHtml(name)}</td></tr>
        <tr><td><b>E-Mail</b></td><td>${escapeHtml(email)}</td></tr>
        <tr><td><b>Telefon</b></td><td>${escapeHtml(phone)}</td></tr>
-       ${vehicle ? `<tr><td><b>Fahrzeug</b></td><td>${escapeHtml(vehicle)}</td></tr>` : ""}
+       ${
+         vehicleTitle
+           ? `<tr><td><b>Fahrzeug</b></td><td>${escapeHtml(vehicleTitle)}</td></tr>`
+           : (vehicle ? `<tr><td><b>Fahrzeug (Slug)</b></td><td>${escapeHtml(vehicle)}</td></tr>` : "")
+       }
+       ${
+         vehicleYear !== ""
+           ? `<tr><td><b>Baujahr</b></td><td>${escapeHtml(String(vehicleYear))}</td></tr>`
+           : ""
+       }
+       ${
+         vehiclePriceRaw
+           ? `<tr><td><b>Preis (Brutto)</b></td><td>${escapeHtml(
+               typeof vehiclePriceTotal === "number"
+                 ? vehiclePriceTotal.toLocaleString("de-DE") + " €"
+                 : vehiclePriceTotal
+             )}</td></tr>`
+           : ""
+       }
+       ${
+         vehicleUrl
+           ? `<tr><td><b>Link</b></td><td><a href="${escapeHtml(vehicleUrl)}">${escapeHtml(vehicleUrl)}</a></td></tr>`
+           : ""
+       }
        <tr><td valign="top"><b>Nachricht</b></td><td>${escapeHtml(message)}</td></tr>
        <tr><td><b>DSGVO</b></td><td>${gdpr ? "zugestimmt" : "nicht zugestimmt"}</td></tr>
      </table>`;
-  const text =
-    `Neue Leasinganfrage\n\n` +
-    `Name: ${name}\n` +
-    `E-Mail: ${email}\n` +
-    `Telefon: ${phone}\n` +
-    (vehicle ? `Fahrzeug: ${vehicle}\n` : "") +
-    `\nNachricht:\n${message}\n` +
-    `\nDSGVO: ${gdpr ? "zugestimmt" : "nicht zugestimmt"}\n`;
+
+  // CHANGED: Text varijanta (fallback)
+  const textLines = [
+    "Neue Leasinganfrage",
+    "",
+    `Name: ${name}`,
+    `E-Mail: ${email}`,
+    `Telefon: ${phone}`,
+  ];
+  if (vehicleTitle) textLines.push(`Fahrzeug: ${vehicleTitle}`);
+  else if (vehicle) textLines.push(`Fahrzeug (Slug): ${vehicle}`);
+  if (vehicleYear !== "") textLines.push(`Baujahr: ${vehicleYear}`);
+  if (vehiclePriceRaw) {
+    const priceTxt =
+      typeof vehiclePriceTotal === "number"
+        ? `${vehiclePriceTotal.toLocaleString("de-DE")} €`
+        : vehiclePriceTotal;
+    textLines.push(`Preis (Brutto): ${priceTxt}`);
+  }
+  if (vehicleUrl) textLines.push(`Link: ${vehicleUrl}`);
+  textLines.push("", "Nachricht:", message, "", `DSGVO: ${gdpr ? "zugestimmt" : "nicht zugestimmt"}`);
+  const text = textLines.join("\n");
 
   try {
     const transporter = nodemailer.createTransport({
       host: HOST,
       port: PORT,
-      secure: PORT === 465,        // 465=SSL, 587=STARTTLS
+      secure: PORT === 465,       
       requireTLS: PORT === 587,
       authMethod: "LOGIN",
       auth: { user: USER, pass: PASS },
     });
 
-    // verifikacija konekcije/kredecijala (ne logujemo detalje ka klijentu)
     await transporter.verify();
 
     await transporter.sendMail({
-      from: `"${name}" <${MAIL_FROM}>`,
+      from: `"${escapeHtml(name)}" <${MAIL_FROM}>`,
       to: MAIL_TO,
       replyTo: email,
       subject,
@@ -158,7 +217,6 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
     return json(res, 200, { ok: true });
   } catch (err) {
-    // detaljnu grešku zadržavamo u logu (Vercel Runtime Logs)
     console.error("Mail send error:", err);
     return json(res, 500, { error: "Failed to send mail" });
   }
