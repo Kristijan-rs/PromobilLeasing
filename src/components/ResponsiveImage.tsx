@@ -39,7 +39,6 @@ export default function ResponsiveImage({
     );
   }
 
-  // B) <picture> sa varijantama (potrebni fajlovi -480/-768/…)
   if (!basePath) return null;
 
   const srcset = buildSrcset({ basePath });
