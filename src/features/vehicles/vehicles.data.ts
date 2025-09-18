@@ -159,7 +159,7 @@ const vehicles: Vehicle[] = [
     "/images/cars/audi-s6-avant-2024/20.jpg",
   ],
   available: true,            
-  featured: true,
+  featured: false,
   shortDesc: "MATRIX, B&O, Panorama, AHK, ACC, Memory.",
   technicalData: {
     "Baureihe": "S6 Avant (4A5) (03.2019 ->)",
@@ -218,7 +218,7 @@ const vehicles: Vehicle[] = [
     "/images/cars/audi-s6-limousine-2024/20.jpg",
   ],
   available: true,                
-  featured: true,
+  featured: false,
   shortDesc: "schwarz+, Matrix, Panorama, Head-up, B&O, Rückfahrkamera.",
   technicalData: {
     "Baureihe": "S6 Lim. (4A2) (03.2019 ->)",
@@ -1531,7 +1531,7 @@ const vehicles: Vehicle[] = [
     "/images/cars/porsche-911-9922-facelift-bose-2024/20.jpg",
   ],
   available: true,
-  featured: false,
+  featured: true,
   shortDesc: "992.2 Facelift, BOSE, Abgasanlage, 360° Kamera, Servo Plus.",
   technicalData: {
     "Baureihe": "911 (Typ 992)(01.2019->)",
@@ -1802,7 +1802,63 @@ const vehicles: Vehicle[] = [
     Zylinder: "6"
   },
   shortDesc: "Unfallfrei, 4RadLenkung, SoftClose, 360°-Kamera, Teilleder, Inno-Paket."
-}
+},
+{
+  id: "30",
+  slug: "audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc",
+  bodyType: "Sportwagen / Coupé",
+  brand: "Audi",
+  model: "A7 Sportback 2xS-Line Pano Matrix HuD Kamera ACC",
+  year: 2024,
+  mileage: 9351,
+  fuel: "petrol",
+  gearbox: "auto",
+  powerKW: 195,
+  pricePerMonth: 0,
+  priceTotal: 58990,
+  priceNeto: 49571,
+  images: [
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/1.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/2.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/3.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/4.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/5.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/6.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/7.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/8.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/9.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/10.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/11.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/12.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/13.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/14.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/15.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/16.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/17.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/18.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/19.jpg",
+    "/images/cars/audi-a7-sportback-2x-s-line-pano-matrix-hud-kamera-acc/20.jpg"
+  ],
+  available: true,
+  featured: true,
+  technicalData: {
+    "Baureihe": "A7 Sportback (4KA) (11.2017->)",
+    "Ausstattungslinie": "45 basis TFSI quattro",
+    "Hubraum": "1.984 cm³",
+    "Sitzplätze": "5",
+    "Türen": "4/5",
+    "Schadstoffklasse": "Euro6d",
+    "Umweltplakette": "4 (Grün)",
+    "Fahrzeughalter": "1",
+    "HU": "05/2025",
+    "Farbe (Hersteller)": "Florettsilber",
+    "Farbe": "Silber Metallic",
+    "Innenausstattung": "Vollleder, Schwarz",
+    "Gewicht": "1.835 kg",
+    "Zylinder": "4"
+  },
+  shortDesc: "A7 Sportback 45 TFSI quattro, 2× S-Line, Panorama, Matrix LED, Head-up, Kamera, ACC. EZ 05/2024, 9.351 km, Automatik, unfallfrei."
+},
 
 
 

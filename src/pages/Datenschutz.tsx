@@ -40,6 +40,7 @@ export default function Datenschutz() {
           <address className="not-italic">
             {ADDRESS_LINES.map((line, i) => <div key={i}>{line}</div>)}
           </address>
+          
           <p className="mt-2">
             E-Mail:{" "}
             <a href={`mailto:${EMAIL}`} className="underline underline-offset-4 hover:text-neutral-600">
