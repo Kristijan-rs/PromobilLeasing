@@ -56,8 +56,8 @@ export default function VehicleCard({ v }: Props) {
           {v.brand} {v.model}
         </h3>
         <p className="mt-1 text-sm text-neutral-600">
-          {v.year} • {fuelLabel[v.fuel]} •{" "}
-          {v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe"}
+          {v.year} • {v.mileage.toLocaleString()} km • {fuelLabel[v.fuel]} •{" "}
+          {v.gearbox === "automatic" ? "Automatik" : "Schaltgetriebe"}
         </p>
 
         {/* Preise: Rate + Kaufpreis */}

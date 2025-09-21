@@ -117,7 +117,7 @@ export default function CarDetail() {
                 { label: "Baujahr", value: String(v.year) },
                 { label: "Kilometerstand", value: `${v.mileage.toLocaleString("de-DE")} km` },
                 { label: "Antrieb", value: fuelLabel[v.fuel] },
-                { label: "Getriebe", value: v.gearbox === "auto" ? "Automatik" : "Schaltgetriebe" },
+                { label: "Getriebe", value: v.gearbox === "automatic" ? "Automatik" : "Schaltgetriebe" },
                 { label: "Leistung", value: `${v.powerKW} kW / ${kwToPs(v.powerKW)} PS` },
                 { label: "Verfügbarkeit", value: v.available ? "Verfügbar" : "Nicht verfügbar" },
               ]}

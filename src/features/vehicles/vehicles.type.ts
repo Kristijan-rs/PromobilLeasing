@@ -1,6 +1,6 @@
 
 export type Fuel = "petrol" | "diesel" | "hybrid" | "electric";
-export type Gearbox = "auto" | "manual";
+export type Gearbox = "automatic" | "manual";
 
 export type BodyType = 
 | "limousine" 
