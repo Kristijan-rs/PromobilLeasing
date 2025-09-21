@@ -14,7 +14,7 @@ export function buildVehicleSchema(v: Vehicle, url: string) {
       "unitCode": "KM"
     },
     "fuelType": v.fuel,
-    "vehicleTransmission": v.gearbox === "auto" ? "AutomaticTransmission" : "ManualTransmission",
+    "vehicleTransmission": v.gearbox === "automatic" ? "AutomaticTransmission" : "ManualTransmission",
     "url": url,
     "image": v.images,
     "offers": {
